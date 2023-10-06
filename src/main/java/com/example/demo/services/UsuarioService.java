@@ -21,6 +21,10 @@ public class UsuarioService {
         return usuariorepository.save(usuarioModel);
     }
 
+    public ArrayList<UsuarioModel> guardarUsuarios(ArrayList<UsuarioModel> usuariosNuevos){
+        return (ArrayList<UsuarioModel>) usuariorepository.saveAll(usuariosNuevos);
+    }
+
     public Optional<UsuarioModel> obtenerPorId(Long id){
         return usuariorepository.findById(id);
     }

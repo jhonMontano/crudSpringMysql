@@ -20,6 +20,10 @@ public class UsuarioController {
     public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuarioModel){
         return this.usuarioService.guardarUsuario(usuarioModel);
     }
+    @PostMapping("/guardarUsuarios")
+    public ArrayList<UsuarioModel> guardarUsuarios(@RequestBody ArrayList<UsuarioModel> nuevosUsuario){
+        return this.usuarioService.guardarUsuarios(nuevosUsuario);
+    }
     @GetMapping("/obtenerPorId/{id}")
     public Optional<UsuarioModel> obtenerPorId(@PathVariable Long id){
         return this.usuarioService.obtenerPorId(id);
