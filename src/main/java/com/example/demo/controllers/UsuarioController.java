@@ -33,7 +33,12 @@ public class UsuarioController {
         return this.usuarioService.obtenerPorPrioridad(prioridad);
     }
     @DeleteMapping("/eliminarUsuario/{id}")
-    public boolean eliminarUsuario(@PathVariable Long id){
-        return usuarioService.eliminarUsuario(id);
+    public String eliminarUsuario(@PathVariable Long id){
+        boolean ok = this.usuarioService.eliminarUsuario(id);
+        if (ok){
+            return "Se elimino el usuario con id "+id;
+        }else {
+            return "No se encontro el usuario con el id "+id;
+        }
     }
 }
